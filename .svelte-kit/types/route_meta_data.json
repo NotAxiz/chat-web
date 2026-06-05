@@ -1,0 +1,15 @@
+{
+	"/": [],
+	"/api/chat": [
+		"src/routes/api/chat/+server.js"
+	],
+	"/api/history": [
+		"src/routes/api/history/+server.js"
+	],
+	"/api/history/[id]": [
+		"src/routes/api/history/[id]/+server.js"
+	],
+	"/api/settings": [
+		"src/routes/api/settings/+server.js"
+	]
+}
