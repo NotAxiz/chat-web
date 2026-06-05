@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap');
+
+/* ── Variables ── */
+:root {
+  --bg-app:       #1a1a1a;
+  --bg-sidebar:   #141414;
+  --bg-panel:     #242424;
+  --bg-elevated:  #2a2a2a;
+  --bg-hover:     #2e2e2e;
+  --bg-active:    #333333;
+  --border:       rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(255, 255, 255, 0.2);
+  --text-primary:   #e8e8e8;
+  --text-secondary: #a0a0a0;
+  --text-tertiary:  #555555;
+  --green:   #22c55e;
+  --red:     #ef4444;
+  --blue:    #3b82f6;
+  --r-xs: 4px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; overflow: hidden; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  background: var(--bg-app);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2e2e2e; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
+
+/* ══════════════════════════════════════════
+   PROSE  —  used for all AI response content
+   Inspired by: Notion, Perplexity, Linear docs
+══════════════════════════════════════════ */
+.prose {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  font-weight: 400;
+  word-break: break-word;
+}
+
+/* Paragraphs */
+.prose p {
+  margin: 0 0 1rem;
+}
+.prose p:last-child { margin-bottom: 0; }
+
+/* ── Bold & Italic ── */
+.prose strong, .prose b {
+  font-weight: 600;
+  color: #ffffff;
+}
+.prose em, .prose i {
+  font-style: italic;
+  color: #b8b8b8;
+}
+
+/* ── Headings ── */
+.prose h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 2rem 0 0.75rem;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+.prose h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f0f0f0;
+  margin: 1.5rem 0 0.6rem;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+.prose h3 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin: 1.25rem 0 0.4rem;
+  letter-spacing: -0.01em;
+}
+.prose h4 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 1rem 0 0.35rem;
+}
+
+/* ── Lists ── */
+.prose ul,
+.prose ol {
+  margin: 0 0 1rem 1.4rem;
+  padding: 0;
+}
+
+.prose li {
+  margin-bottom: 0.4rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+.prose li:last-child { margin-bottom: 0; }
+
+.prose ul li::marker { color: #444; }
+.prose ol li::marker {
+  color: #666;
+  font-size: 0.875em;
+  font-variant-numeric: tabular-nums;
+}
+
+.prose li > ul,
+.prose li > ol {
+  margin-top: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+/* ── Inline Code ── */
+.prose code:not(pre code) {
+  font-family: ui-monospace, 'SF Mono', 'Fira Code', Menlo, Consolas, monospace;
+  font-size: 0.82em;
+  background: #252525;
+  color: #ce9178;
+  padding: 0.18em 0.5em;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  white-space: nowrap;
+}
+
+/* ── Blockquote ── */
+.prose blockquote {
+  margin: 1.25rem 0;
+  padding: 0.875rem 1.125rem;
+  background: #1f1f1f;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-left: 3px solid rgba(255,255,255,0.2);
+  border-radius: 0 8px 8px 0;
+  color: #999;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+.prose blockquote > * { margin: 0; color: #999; }
+
+/* ── Links ── */
+.prose a {
+  color: #d8d8d8;
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.18);
+  text-underline-offset: 3px;
+  transition: color 0.12s, text-decoration-color 0.12s;
+}
+.prose a:hover {
+  color: #fff;
+  text-decoration-color: rgba(255,255,255,0.45);
+}
+
+/* ── Horizontal Rule ── */
+.prose hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin: 2rem 0;
+}
+
+/* ── Tables ── */
+.prose table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1e1e1e;
+}
+.prose thead { background: #252525; }
+.prose th {
+  color: #888;
+  font-weight: 500;
+  font-size: 0.725rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 11px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  white-space: nowrap;
+}
+.prose td {
+  padding: 11px 16px;
+  color: var(--text-primary);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  vertical-align: top;
+  line-height: 1.55;
+}
+.prose tbody tr:last-child td { border-bottom: none; }
+.prose tbody tr { transition: background 0.1s; }
+.prose tbody tr:hover td { background: rgba(255,255,255,0.025); }
+.prose td:first-child { color: #ebebeb; font-weight: 500; }
+
+/* ══════════════════════════════════════════
+   CODE BLOCKS
+══════════════════════════════════════════ */
+.code-block-wrapper {
+  background: #111111;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  margin: 1.25rem 0;
+}
+.code-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a1a1a;
+  padding: 8px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.code-language-tag {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.code-language {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: #555;
+  text-transform: lowercase;
+  font-family: ui-monospace, monospace;
+  letter-spacing: 0.03em;
+}
+.code-actions { display: flex; gap: 6px; align-items: center; }
+.code-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  color: #555;
+  font-size: 0.6875rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 3px 8px;
+  border-radius: var(--r-xs);
+  transition: background 0.12s, color 0.12s;
+}
+.code-action-btn:hover {
+  background: rgba(255,255,255,0.06);
+  color: #ccc;
+}
+.code-block-wrapper pre {
+  margin: 0 !important;
+  padding: 1rem 1.25rem !important;
+  background: transparent !important;
+  overflow-x: auto;
+  border: none !important;
+  border-radius: 0 !important;
+}
+.code-block-wrapper pre code {
+  background: transparent !important;
+  padding: 0 !important;
+  color: inherit;
+  white-space: pre;
+  font-family: ui-monospace, 'SF Mono', 'Fira Code', Menlo, Consolas, monospace;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  border: none !important;
+}
